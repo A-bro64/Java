@@ -1,0 +1,91 @@
+##### Encription getEncryptedName
+
+
+import java.util.Scanner;
+
+/*
+ * Create the Encrypter class here.
+ */
+class Encrypter {
+    public String getEncryptedName(String name) {
+        Validator vd = new Validator();
+        Boolean valid = vd.validate(name);
+        if(valid) {
+            // Perform encryption
+            StringBuilder encryptedName = new StringBuilder();
+            for (int i = 0; i < name.length(); i++) {
+                char originalChar = name.charAt(i);
+                // Shift each character by 3 positions (simple Caesar cipher)
+                char encryptedChar = (char) ((originalChar - 'a' + 3) % 26 + 'a');
+                encryptedName.append(encryptedChar);
+            }
+            return encryptedName.toString();
+        } else {
+            throw new IllegalArgumentException("Try again with valid name");
+        }
+    }
+}
+
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        
+        Encrypter encrypter = new Encrypter();
+        String encryptedName = encrypter.getEncryptedName(name);
+        System.out.println("Encrypted name: " + encryptedName);
+    }
+}
+
+
+
+########################################################
+########################################################
+######################################################## Dacritp getEncryptedName 
+
+
+import java.util.Scanner;
+import java.lang.StringBuilder;
+
+
+/*
+ * Create the Encrypter class here.
+ */
+class Encrypter {
+    public String getEncryptedName(String name) {
+        Validator vd = new Validator();
+        Boolean valid = vd.validate(name);
+        if(valid) {
+            return new StringBuilder(name).reverse().toString().toLowerCase();
+        } else {
+            throw new IllegalArgumentException("Try again with valid name");
+        }
+    }    
+}
+
+
+
+
+
+################################################## One more method 
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        
+        Encrypter encrypter = new Encrypter();
+        String encryptedName = encrypter.getEncryptedName(name);
+        System.out.println("Encrypted name: " + encryptedName);
+    }
+}
+
+
+######## This main method will prompt the user to enter their name, encrypt it using the Encrypter class, and then print the encrypted name to the console.
